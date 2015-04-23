@@ -2,9 +2,8 @@
 A little game of life program in ~120 lines of badly written haskell :)
 
 #Sample playthrough
-###First enter a game as a series of .'s and other characters on seperate lines
-###Ending with a blank line
-###.'s represent dead states, and any other character represents a living one.
+####First enter a game as a series of .'s and other characters on seperate lines, ending with a blank line.
+####.'s represent dead states, and any other character represents a living one.
 ```
 Enter a game
 ........
