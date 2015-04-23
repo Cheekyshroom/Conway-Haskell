@@ -34,15 +34,6 @@ indMap [] _ _ = []
 indMap (head:rest) fn i =
    (fn head i) : (indMap rest fn (i+1))
 
-foo b@(Board tiles) =
-   (indMap tiles 
-       (\list y -> 
-         indMap list 
-           (\e x -> 
-              (countNeighbors indices x y)) 0) 0)
-   where indices = getOnIndices b
-
-
 nextState :: Board -> Board
 nextState b@(Board tiles) =
    Board (indMap tiles 
