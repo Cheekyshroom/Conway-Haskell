@@ -5,6 +5,7 @@ Up next, reading initial states from a file!
 #Sample playthrough
 ####First enter a game as a series of .'s and other characters on seperate lines, ending with a blank line.
 ####.'s represent dead states, and any other character represents a living one.
+####After entering the game board, press enter repeatedly to advance the game, and quit by typing quit
 ```
 Enter a game
 ........
