@@ -1,5 +1,6 @@
 #Conway-haskell
 A little game of life program in ~120 lines of badly written haskell :)
+Up next, reading initial states from a file!
 
 #Sample playthrough
 ####First enter a game as a series of .'s and other characters on seperate lines, ending with a blank line.
