@@ -1,11 +1,11 @@
 #Conway-haskell
 A little game of life program in ~120 lines of badly written haskell :)
 
-#You can load an initial state from a file by running as
+#####You can load an initial state from a file by running as
 ```
 gol filename
 ```
-#as opposed to 
+#####as opposed to 
 gol
 
 #Sample playthrough
