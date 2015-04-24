@@ -1,4 +1,6 @@
 import Data.List (elemIndices)
+import System.Environment (getArgs)
+import System.IO
 
 data TileState = On | Off deriving (Eq, Show)
 data Board = Board [[TileState]] deriving (Show)
@@ -109,7 +111,16 @@ runGame game = do
 
 main :: IO ()
 main = do
-   putStrLn "Enter a game"
-   game <- getGame
-   runGame game
-   return ()
+   args <- getArgs
+   if (length args) < 1
+   then do
+      putStrLn "Enter a game"
+      game <- getGame
+      runGame game
+      return ()
+   else do
+      handle <- openFile (head args) ReadMode
+      contents <- hGetContents handle
+      runGame (stringToGame contents)
+      hClose handle
+      return ()
