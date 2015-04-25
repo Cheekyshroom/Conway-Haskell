@@ -1,6 +1,7 @@
 import Data.List (elemIndices)
 import System.Environment (getArgs)
 import System.IO
+import System.Directory (doesFileExist)
 
 data TileState = On | Off deriving (Eq, Show)
 data Board = Board [[TileState]] deriving (Show)
@@ -112,8 +113,15 @@ main = do
       runGame game
       return ()
    else do
-      handle <- openFile (head args) ReadMode
-      contents <- hGetContents handle
-      runGame (stringToGame contents)
-      hClose handle
-      return ()
+      let fileName = (head args)
+      doesExist <- doesFileExist fileName
+      if doesExist
+      then do
+         handle <- openFile fileName ReadMode
+         contents <- hGetContents handle
+         runGame (stringToGame contents)
+         hClose handle
+         return ()
+      else do
+         putStrLn ("File not found: " ++ fileName)
+         return ()
