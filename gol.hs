@@ -4,12 +4,7 @@ import System.IO
 
 data TileState = On | Off deriving (Eq, Show)
 data Board = Board [[TileState]] deriving (Show)
-data Game = Game Int Board | BlankGame deriving (Show)
-
-defaultWidth = 10
-defaultHeight = 10
-defaultBoard = 
-   Board (replicate defaultHeight (replicate defaultWidth Off))
+data Game = Game Int Board deriving (Show)
 
 determineState :: Int -> TileState -> TileState
 determineState 2 On = On
@@ -49,8 +44,6 @@ nextState b@(Board tiles) =
       indices = getOnIndices b
 
 nextIteration :: Game -> Game
-nextIteration BlankGame =
-   Game 0 defaultBoard
 nextIteration (Game iteration state) =
    Game (iteration+1) (nextState state)
 
